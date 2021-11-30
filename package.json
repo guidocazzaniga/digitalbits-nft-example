@@ -1,0 +1,26 @@
+{
+  "name": "Digitalbits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nft.js",
+  "dependencies": {
+    "node-fetch": "^2.0.0",
+    "xdb-digitalbits-sdk": "^8.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node nft.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/paulon.tommaso/digitalbits-nft-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/paulon.tommaso/digitalbits-nft-example/issues"
+  },
+  "homepage": "https://gitlab.com/paulon.tommaso/digitalbits-nft-example#readme"
+}
