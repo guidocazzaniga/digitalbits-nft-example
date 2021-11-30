@@ -22,7 +22,7 @@ async function main() {
             )}`,
         );
         const responseJSON = await response.json();
-        console.log("SUCCESS! distributor account created : " + distributorPublic + "\n")
+        console.log("   SUCCESS! distributor account created : " + distributorPublic + "\n")
     } catch (e) {
         console.error("ERROR!", e);
     }
@@ -34,7 +34,7 @@ async function main() {
             )}`,
         );
         const responseJSON = await response.json();
-        console.log("SUCCESS! issuer account created : " + issuerPublic + "\n")
+        console.log("   SUCCESS! issuer account created : " + issuerPublic + "\n")
     } catch (e) {
         console.error("ERROR!", e);
     }
@@ -44,21 +44,21 @@ async function main() {
     const server = new DigitalBitsSdk.Server("https://frontier.testnet.digitalbits.io");
     var distAccount = await server.loadAccount(distributorPublic);
     var issAccount = await server.loadAccount(issuerPublic);
-    console.log("Balances for account: " + distributorPublic + " (distributor)");
+    console.log("   Balances for account: " + distributorPublic + " (distributor)");
     distAccount.balances.forEach(function (balance) {
-        console.log("Type: ", balance.asset_type, ", Balance: ", balance.balance);
+        console.log("       Type: ", balance.asset_type, ", Balance: ", balance.balance);
     });
 
-    console.log("Balances for account: " + issuerPublic + " (issuer)");
+    console.log("   Balances for account: " + issuerPublic + " (issuer)");
     issAccount.balances.forEach(function (balance) {
-        console.log("Type: ", balance.asset_type, ", Balance: ", balance.balance + "\n");
+        console.log("       Type: ", balance.asset_type, ", Balance: ", balance.balance + "\n");
     });
 
-    var memo = DigitalBitsSdk.Memo.text('Test NFT');
+    var memo = DigitalBitsSdk.Memo.text('Poli NFT');
     var asset = new DigitalBitsSdk.Asset('PoliNFT', issuerPublic)
 
 
-    console.log("Creating trustline between distributor and issuer...\n");
+    console.log("   Creating trustline between distributor and issuer...\n");
 
     var transaction = new DigitalBitsSdk.TransactionBuilder(distAccount, {
         fee: DigitalBitsSdk.BASE_FEE,
@@ -74,7 +74,7 @@ async function main() {
 
     let receipt1 = await server.submitTransaction(transaction);
 
-    console.log("Trustline created - "+receipt1._links.transaction.href + "\n");
+    console.log("   Trustline created - "+receipt1._links.transaction.href + "\n");
 
 
     var transaction = new DigitalBitsSdk.TransactionBuilder(issAccount, {
@@ -99,20 +99,20 @@ async function main() {
     transaction.sign(pair2);
     let receipt2 = await server.submitTransaction(transaction);
 
-    console.log('NFT created successfully - ', receipt2._links.transaction.href + "\n")
+    console.log('   NFT created successfully - ', receipt2._links.transaction.href + "\n")
 
 
     distAccount = await server.loadAccount(distributorPublic);
     issAccount = await server.loadAccount(issuerPublic);
 
-    console.log("Balances for account: " + distributorPublic + " (distributor)");
+    console.log("   Balances for account: " + distributorPublic + " (distributor)");
     distAccount.balances.forEach(function (balance) {
-        console.log("Type: ", balance.asset_type, ", Balance: ", balance.balance);
+        console.log("       Type: ", balance.asset_type, ", Balance: ", balance.balance);
     });
 
-    console.log("Balances for account: " + issuerPublic + " (issuer)");
+    console.log("   Balances for account: " + issuerPublic + " (issuer)");
     issAccount.balances.forEach(function (balance) {
-        console.log("Type: ", balance.asset_type, ", Balance: ", balance.balance + "\n");
+        console.log("       Type: ", balance.asset_type, ", Balance: ", balance.balance + "\n");
     });
 
 }
