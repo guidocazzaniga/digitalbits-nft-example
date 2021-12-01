@@ -10,7 +10,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node nft.js"
+    "nft": "node nft.js",
+    "fungible": "node fungible.js"
   },
   "repository": {
     "type": "git",
