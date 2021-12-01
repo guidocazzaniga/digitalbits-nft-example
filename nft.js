@@ -91,7 +91,7 @@ async function main() {
             name: 'metadata',
             value: 'https://imgur.com/a/rynaTk1'
         }))
-        .addOperation(DigitalBitsSdk.Operation.setOptions({ //add metadata to nft
+        .addOperation(DigitalBitsSdk.Operation.setOptions({ //issuer cannot mint other units of this asset
             masterWeight: '0'
         }))
         .setTimeout(30)
